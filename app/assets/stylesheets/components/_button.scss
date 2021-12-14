@@ -1,0 +1,14 @@
+.btn-billes{
+    background-color:  $button;
+    color: $button_text;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.4s ease;
+    border-radius: 4px;
+    &:hover {
+        background-color: $button_text;
+        color: $button;
+        text-decoration: none;
+    }
+}

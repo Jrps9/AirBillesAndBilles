@@ -1,0 +1,10 @@
+<div class="d-flex align-items-center flex-column">
+    <h1>Homepage</h1>
+    <a href="" class="btn-billes">Clique</a>
+    <%= link_to "Atelier", atelier_path, :class => "btn-billes" %>
+    <% if user_signed_in? %>
+      <%= link_to "Log-out", destroy_user_session_path, :method => "DELETE", :class => "btn-billes" %>
+      <% else %>
+      <%= link_to "Log-toi", new_user_session_path, :class => "btn-billes" %>
+    <% end %>
+</div>

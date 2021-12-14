@@ -1,0 +1,14 @@
+<h1>Index des trades</h1>
+<div class="col-4">
+    <% Trade.all.each do |t|  %>
+        <div class="card">
+            <p>Trade id : <%= t.id %></p>
+            <p>Vendeur id : <%= t.user_id %></p>
+            <% Airbille.where(:id => t.airbille_id).each do |ab| %>
+                <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
+                <%= ab.name %>
+                <%= ab.user.email %>
+            <% end %>
+        </div>
+    <% end %>
+</div>

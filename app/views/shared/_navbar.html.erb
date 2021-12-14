@@ -1,0 +1,28 @@
+<div class="navbar-mobile-icarus">
+    <ul class="navbar-mobile-list">
+
+      <%= link_to root_path do%>
+      <li><i class="icons fas fa-home <%= 'active' if current_page?(root_path) %>"></i></li>
+      <% end %>
+
+      <%= link_to atelier_path do%>
+      <li><i class="icons fas fa-cogs <%= 'active' if current_page?(atelier_path)%>
+      <%= 'active' if controller.controller_name == "airbilles" %>"></i></li>
+      <% end %>
+
+      <%= link_to trades_path do%>
+        <li><i class="icons fas fa-registered <%= 'active' if current_page?(trades_path) %>"></i></li>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to player_path do%>
+          <li><i class="icons fas fa-users <%= 'active' if current_page?(player_path) %>"></i></li>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do%>
+          <li><i class="icons fas fa-users <%= 'active' if current_page?(player_path) %>"></i></li>
+        <% end %>
+      <% end %>
+
+    </ul>
+</div>

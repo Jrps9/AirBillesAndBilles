@@ -1,0 +1,16 @@
+<div class="d-flex align-items-center flex-column">
+    <h1>Show</h1>
+    <%= link_to "Homepage", root_path()%>
+    <div class="col-12">
+
+    <%= simple_form_for @trade do |f| %>
+        <%# <%= f.input :name => "id", :placeholder => "idea", :value => @airbille.id %>
+        <%= f.hidden_field :airbille_id, :value => @airbille.id %>
+        <%= f.button :submit, "Créer un échange", :class=> "btn-billes"%>
+    <% end %>
+  </div>
+
+    <div class="billes" style="background-color: #<%= @airbille.couleur %>;">
+        <p>coucou</p>
+    </div>
+</div>

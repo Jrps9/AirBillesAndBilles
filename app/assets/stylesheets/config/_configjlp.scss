@@ -1,0 +1,92 @@
+// Setup
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Les couleurs de l'application :
+
+$background: #004643;
+$headline: #fffffe;
+$paragraph: #b2cfc7;
+$button: #f9bc60;
+$button_text: #001e1d;
+
+$stroke: #001e1d;
+$main: #e8e4e6;
+$highlight: #f9bc60;
+$secondary: #abd1c6;
+$tertiary: #e16162;
+
+// Les Fonts de l'application :
+
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+
+// Define fonts for body and headers
+$body-font: "Work Sans", "Helvetica", "sans-serif";
+$headers-font: "Nunito", "Helvetica", "sans-serif";
+
+// Les Balises générales :
+
+body {
+  background-color: $background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  color: $paragraph;
+  text-decoration: none;
+}
+
+p {
+  font-size: clamp(16px, 2vw, 25px);
+  font-family: $body-font;
+  font-weight: normal;
+  margin: 0.2em;
+}
+
+h1 {
+  font-size: 10vmin;
+  font-family: $headers-font;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: clamp(35px, 5vw, 55px);
+  font-family: $headers-font;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: clamp(24px, 4vw, 45px);
+  font-family: $headers-font;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: clamp(22px, 3vw, 35px);
+  font-family: $headers-font;
+  font-weight: normal;
+}
+
+h5 {
+  font-family: $headers-font;
+  font-weight: 400;
+  font-size: clamp(35px, 5vw, 40px);
+}
+
+h6 {
+  font-family: $headers-font;
+  font-weight: 400;
+  font-size: clamp(52px, 6vw, 100px);
+}

@@ -1,0 +1,29 @@
+<div class="d-flex align-items-center flex-column">
+    <h1>Player profil</h1>
+    <h1><%= current_user.email %></h1>
+    <h1><%= current_user.id %></h1>
+    <div class="row w-100">
+        <div class="col-6">
+            <h1>Mate ta collection de AirBilles :</h1>
+            <% Airbille.all.where(:user_id == current_user.id).each do |ab| %>
+                <% if ab.disponibility == true %>
+                    <%= link_to airbille_path(ab) do %>
+                    <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
+                    <%= ab.name %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="col-6">
+            <h1>Tes Airbilles actuellement sur le marché :</h1>
+            <% Airbille.all.where(:user_id == current_user.id).each do |ab| %>
+                <% if ab.disponibility == false %>
+                    <%= link_to airbille_path(ab) do %>
+                    <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
+                    <%= ab.name %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

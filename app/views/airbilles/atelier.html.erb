@@ -1,0 +1,31 @@
+<div class="d-flex align-items-center flex-column mb-5">
+    <%= link_to "Homepage", root_path()%>
+
+    <h1>Bienvenu dans l'atelier !</h1>
+    <h2>Regarde cette collection de billes :</h2>
+    <div class="row">
+
+      <div class="col-6">
+        <% Airbille.order('created_at DESC').all.each do |ab| %>
+        <% if ab.disponibility == true %>
+         <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
+                <%= link_to airbille_path(ab) do %>
+                <%= ab.name %>
+                <%= ab.user_id %>
+                <%= ab.disponibility %>
+                <%= ab.id %>
+                <% end %>
+        <% end %>
+        <% end %>
+      </div>
+
+      <div class="col-6">
+        <%= simple_form_for @airbille do |f| %>
+            <%= f.hidden_field :couleur, :value => @airbille.rand_color, required: true %>
+            <%= f.input :name, :value => @airbille.rand_name, required: true, label: false, placeholder: "Nommer la bille" %>
+            <%= f.button :submit, "Créer une bille", :class=> "btn-billes"%>
+        <% end %>
+      </div>
+    </div>
+
+</div>

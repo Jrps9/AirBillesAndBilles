@@ -1,12 +1,42 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-mobile-icarus {
+  position: absolute;
+  position: fixed;
+  width: 100vw;
+  padding: 25px 10vw;
+  bottom: 0px;
+  background: $button_text;
+  background: linear-gradient(
+    0deg,
+    $button_text 0%,
+    $button_text 73%,
+    $button_text 75%,
+    $button_text 78%,
+    $button_text 81%,
+    $button_text 84%,
+    $button_text 87%,
+    $button_text 90%,
+    $button_text 94%,
+    $button_text 97%,
+    $button_text 100%
+  );
+  .icons {
+    font-size: 28px;
+    color: $button;
+    text-shadow: 1px 1px 10px $button;
+    opacity: 0.5;
+    &.active {
+      opacity: 1;
+      text-shadow: 1px 1px 10px $button;
+    }
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    li {
+      display: inline-block;
+    }
+  }
 }
