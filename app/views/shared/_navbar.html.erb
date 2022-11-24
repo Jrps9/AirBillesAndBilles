@@ -14,6 +14,10 @@
         <li><i class="icons fas fa-registered <%= 'active' if current_page?(trades_path) %>"></i></li>
       <% end %>
 
+      <%= link_to map_path do%>
+        <li><i class="icons fas fa-map<%= 'active' if current_page?(map_path) %>"></i></li>
+      <% end %>
+
       <% if user_signed_in? %>
         <%= link_to player_path do%>
           <li><i class="icons fas fa-users <%= 'active' if current_page?(player_path) %>"></i></li>

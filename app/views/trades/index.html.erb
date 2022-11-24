@@ -1,14 +1,43 @@
-<h1>Index des trades</h1>
-<div class="col-4">
-    <% Trade.all.each do |t|  %>
-        <div class="card">
-            <p>Trade id : <%= t.id %></p>
-            <p>Vendeur id : <%= t.user_id %></p>
-            <% Airbille.where(:id => t.airbille_id).each do |ab| %>
-                <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
-                <%= ab.name %>
-                <%= ab.user.email %>
+<h1 class="text-center">Trades :</h1>
+<div class="row w-100">
+    <div class="col-6">
+        <h2>Trade ouvert :</h2>
+        <% Trade.all.each do |t|  %>
+            <% if t.status == "ouvert" %>
+                <div class="card">
+                    <p>Trade id : <%= t.status %></p>
+                    <p>Vendeur id : <%= t.user_id %></p>
+                    <% Airbille.where(:id => t.airbille_id).each do |ab| %>
+                        <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
+                        <%= ab.name %>
+                        <%= ab.user.email %>
+                        <%= simple_form_for t do |f|%>
+                            <%= f.hidden_field :id, :id => t.id %>
+                            <%= f.hidden_field :user_id, :user_id => @user_id %>
+                            <%= f.hidden_field :airbille_id, :airbille_id => ab.id %>
+                            <% if ab.user_id != current_user.id %>
+                              <%= f.submit "Acheter cette bille" %>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
             <% end %>
-        </div>
-    <% end %>
+        <% end %>
+    </div>
+    <div class="col-6">
+        <h2>Trade cloturé :</h2>
+        <% Trade.all.each do |t|  %>
+            <% if t.status == "cloturé" %>
+                <div class="card">
+                    <p>Trade id : <%= t.status %></p>
+                    <p>Vendeur id : <%= t.user_id %></p>
+                    <% Airbille.where(:id => t.airbille_id).each do |ab| %>
+                        <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
+                        <%= ab.name %>
+                        <%= ab.user.email %>
+                    <% end %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 </div>

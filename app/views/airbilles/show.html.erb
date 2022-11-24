@@ -4,8 +4,8 @@
     <div class="col-12">
 
     <%= simple_form_for @trade do |f| %>
-        <%# <%= f.input :name => "id", :placeholder => "idea", :value => @airbille.id %>
         <%= f.hidden_field :airbille_id, :value => @airbille.id %>
+        <%= f.input :status, :collection => Trade::STATUS %>
         <%= f.button :submit, "Créer un échange", :class=> "btn-billes"%>
     <% end %>
   </div>

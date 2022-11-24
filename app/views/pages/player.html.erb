@@ -3,21 +3,22 @@
     <h1><%= current_user.email %></h1>
     <h1><%= current_user.id %></h1>
     <div class="row w-100">
-        <div class="col-6">
-            <h1>Mate ta collection de AirBilles :</h1>
-            <% Airbille.all.where(:user_id == current_user.id).each do |ab| %>
-                <% if ab.disponibility == true %>
+        <div class="col-12 col-md-6">
+            <h2>Mate ta collection de AirBilles :</h2>
+            <% Airbille.all.where(:disponibility => true).each do |ab| %>
+                <% if ab.user_id == current_user.id%>
                     <%= link_to airbille_path(ab) do %>
                     <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
                     <%= ab.name %>
+                    <%= ab.user_id %>
                     <% end %>
                 <% end %>
             <% end %>
         </div>
-        <div class="col-6">
-            <h1>Tes Airbilles actuellement sur le marché :</h1>
-            <% Airbille.all.where(:user_id == current_user.id).each do |ab| %>
-                <% if ab.disponibility == false %>
+        <div class="col-12 col-md-6 d-flex flex-wrap">
+            <h2>Tes Airbilles actuellement sur le marché :</h2>
+            <% Airbille.all.where(:disponibility => false).each do |ab| %>
+                <% if ab.user_id == current_user.id %>
                     <%= link_to airbille_path(ab) do %>
                     <div class="billes" style="border-color: #<%= ab.couleur %>;"></div>
                     <%= ab.name %>
